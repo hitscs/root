@@ -15,6 +15,21 @@
 				<set field="currentScreenDef" from="sri.sfi.getScreenDefinition(currentSubscreensItem.location)" />
 				<set field="currentScreenPath" value="${parentScreenPath}/${currentSubscreensItem.name}" />
 				<set field="currentUrlInfo" from="sri.buildUrl(currentScreenPath)" />
+				<set field="subMenus" from="currentScreenDef.getMenuSubscreensItems()"/>
+				<set field="subMenuNum" value="0"/>
+				<iterate entry="subscreensItem" list="subMenus">
+				
+				<set field="subscreensItemDef" from="sri.sfi.getScreenDefinition(subscreensItem.location)"/>
+				
+				<set field="subscreensItemUrlInfo" from="sri.buildUrl(currentScreenPath+'/'+subscreensItem.name)"/>
+
+
+<!--                 <#if currentUrlInfo.isPermitted()>     
+                    <#if !currentScreenDef.hasRequiredParameters()>
+                        <#assign subMenuNum = subMenuNum + 1>
+                    </#if>                
+                </#if> -->
+				</iterate>
 			</actions>
 			<widgets>
 				<section name="ScreenItemRender">
