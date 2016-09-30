@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-facade-xml type="seed">
+
+
+    <moqui.screen.SubscreensItem screenLocation="component://webroot/screen/webroot.xml"
+            subscreenName="root" userGroupId="ALL_USERS" menuTitle="系统根目录" menuIndex="30" menuInclude="Y"
+            subscreenLocation="component://root/screen/root.xml"/>
+
+    <moqui.security.ArtifactGroup artifactGroupId="ROOT_APP" description="系统根目录"/>
+    <moqui.security.ArtifactGroupMember artifactGroupId="ROOT_APP" artifactTypeEnumId="AT_XML_SCREEN"
+            inheritAuthz="Y" artifactName="component://root/screen/root.xml"/>
+
+    <!-- Full permissions for the ADMIN user group -->
+    <moqui.security.ArtifactAuthz artifactAuthzId="ROOT_AUTHZ_ALL" userGroupId="ADMIN" artifactGroupId="ROOT_APP"
+            authzTypeEnumId="AUTHZT_ALWAYS" authzActionEnumId="AUTHZA_ALL"/>
+</entity-facade-xml>

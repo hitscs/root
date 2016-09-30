@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-2.0.xsd"
+	require-authentication="false" standalone="true" default-menu-title="系统根目录">
+	<!-- NOTE: require-authentication=false is required to allow sub-screens to decide. -->
+	<macro-template type="html" location="component://root/screen/root/templates/adminlte/AdminLTEScreenMacros.html.ftl" />
+	<!-- <transition name="setPreference">
+	 <parameter name="preferenceKey" /> 
+	 <parameter name="preferenceValue" /> 
+	 <actions> 
+	 <script>ec.user.setPreference(preferenceKey,preferenceValue)</script> 
+	 </actions> 
+	 <default-response type="none" /> 
+	 </transition> -->
+	<subscreens default-item="AppList">
+		<!-- refer to the various app roots here -->
+		<subscreens-item name="tpacims" location="component://tpacims/screen/tpacims.xml" menu-title="结核病防控信息管理系统" menu-index="91" />
+		<subscreens-item name="cmsAdmin" location="component://cmsAdmin/screen/cmsAdmin.xml" menu-title="信息管理系统" menu-index="92" />
+		
+	</subscreens>
+	<pre-actions>
+		<set field="appsLocation" value="component://root/screen/root.xml" />
+		<set field="currentScreenDef" from="sri.sfi.getScreenDefinition(appsLocation)" />
+		<set field="currentScreenPath" value="/root" />
+	</pre-actions>
+
+
+
+	<widgets>
+		<render-mode>
+			<text type="html" location="component://root/screen/root/templates/adminlte/includes/Header.html.ftl" no-boundary-comment="true" />
+		</render-mode>
+
+		<render-mode>
+			<text type="html" location="component://root/screen/root/templates/adminlte/includes/navbar.html.ftl" />
+		</render-mode>
+		<left-side>
+
+			<include-screen location="component://root/screen/root/templates/adminlte/LeftMenuTree.xml" share-scope="false" />
+
+		</left-side>
+		<container style="content-wrapper">
+			<!-- <container type="section" style="content-header"></container> -->
+			<container type="section" style="content">
+				<include-screen location="component://root/screen/root/Messages.xml" share-scope="false" />
+				<subscreens-active />
+			</container>
+
+
+		</container>
+		<render-mode>
+			<text type="html" location="component://root/screen/root/templates/adminlte/includes/Footer.html.ftl" />
+		</render-mode>
+	</widgets>
+</screen>
