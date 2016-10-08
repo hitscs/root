@@ -15,20 +15,21 @@
 				<set field="currentScreenDef" from="sri.sfi.getScreenDefinition(currentSubscreensItem.location)" />
 				<set field="currentScreenPath" value="${parentScreenPath}/${currentSubscreensItem.name}" />
 				<set field="currentUrlInfo" from="sri.buildUrl(currentScreenPath)" />
-				<set field="subMenus" from="currentScreenDef.getMenuSubscreensItems()"/>
-				<set field="subMenuNum" value="0"/>
+				<set field="subMenus" from="currentScreenDef.getMenuSubscreensItems()" />
+				<set field="subMenuNum" from="0" />
 				<iterate entry="subscreensItem" list="subMenus">
-				
-				<set field="subscreensItemDef" from="sri.sfi.getScreenDefinition(subscreensItem.location)"/>
-				
-				<set field="subscreensItemUrlInfo" from="sri.buildUrl(currentScreenPath+'/'+subscreensItem.name)"/>
 
+					<set field="subscreensItemDef" from="sri.sfi.getScreenDefinition(subscreensItem.location)" />
 
-<!--                 <#if currentUrlInfo.isPermitted()>     
-                    <#if !currentScreenDef.hasRequiredParameters()>
-                        <#assign subMenuNum = subMenuNum + 1>
-                    </#if>                
-                </#if> -->
+					<set field="subscreensItemUrlInfo" from="sri.buildUrl(currentScreenPath+'/'+subscreensItem.name)" />
+
+					<if condition="currentUrlInfo.isPermitted()">
+
+						<if condition="!currentScreenDef.hasRequiredParameters()">
+							<set field="subMenuNum" from="subMenuNum + 1" />
+						</if>
+					</if>
+
 				</iterate>
 			</actions>
 			<widgets>
@@ -42,7 +43,7 @@
 								<expression>!currentScreenDef?.hasRequiredParameters()</expression>
 							</condition>
 							<widgets>
-								<left-tree-nodes location="${currentSubscreensItem.location}" currentScreenPath="${currentScreenPath}" url="${currentUrlInfo.url}"
+								<left-tree-nodes subMenuNum="${subMenuNum}" currentScreenPath="${currentScreenPath}" url="${currentUrlInfo.url}"
 									text="${currentSubscreensItem.menuTitle}">
 
 									<include-screen location="component://root/screen/root/templates/adminlte/LeftSubMenuTree.xml" share-scope="false" />

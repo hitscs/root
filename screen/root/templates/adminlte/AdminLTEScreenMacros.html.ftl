@@ -24,23 +24,11 @@
 <#macro "left-tree-nodes">
     <#assign linkNode = .node>
     <#assign curUrl = ec.resource.expand(linkNode["@url"], "#")>
-    <#assign textLocation = ec.resource.expand(linkNode["@location"], "")>
-    <#assign subMenus = sri.sfi.getScreenDefinition(textLocation).getMenuSubscreensItems()>
     <#assign currentScreenPath = ec.resource.expand(linkNode["@currentScreenPath"], "#")>
     <#assign urlInstance = sri.buildUrl(currentScreenPath)>
-    <#--<#assign subMenuNum =subMenus.size()>-->
-    <#assign subMenuNum =0>
-            <#list subMenus as subscreensItem>   
-                <#assign currentScreenDef = sri.sfi.getScreenDefinition(subscreensItem.location)>   
-                <#assign currentUrlInfo = sri.buildUrl(currentScreenPath+"/${subscreensItem.name}")>   
-                <#if currentUrlInfo.isPermitted()>     
-                    <#if !currentScreenDef.hasRequiredParameters()>
-                        <#assign subMenuNum = subMenuNum + 1>
-                    </#if>                
-                </#if>
-            </#list>
+    <#assign subMenuNum =ec.resource.expand(linkNode["@subMenuNum"], "0")>
     <#if sri.buildUrl(currentScreenPath).inCurrentScreenPath>
-        <#if subMenuNum gt 0>
+        <#if subMenuNum?eval gt 0>
             <li class="active treeview">
               <a href="#">
                  <#if urlInstance.sui.menuImage?has_content>
@@ -81,7 +69,8 @@
             </li>        
         </#if>
     <#else>
-        <#if subMenuNum gt 0>
+    
+        <#if subMenuNum?eval gt 0>
              <li class="treeview">
               <a href="#">
                  <#if urlInstance.sui.menuImage?has_content>
@@ -128,26 +117,10 @@
     <#assign linkNode = .node>
     <#assign curUrl = ec.resource.expand(linkNode["@url"], "#")>
     <#assign currentScreenPath = ec.resource.expand(linkNode["@currentScreenPath"], "#")>
-    <#assign textLocation = ec.resource.expand(linkNode["@location"], "")>
-    <#assign subMenus =sri.sfi.getScreenDefinition(textLocation).getMenuSubscreensItems()>
     <#assign urlInstance = sri.buildUrl(currentScreenPath)>
-    <#--<#assign subMenuNum =subMenus.size()>-->
-    <#assign subMenuNum =0>
-            <#list subMenus as subscreensItem>   
-                <#assign currentScreenDef = sri.sfi.getScreenDefinition(subscreensItem.location)>   
-                <#assign currentUrlInfo = sri.buildUrl(currentScreenPath+"/${subscreensItem.name}")>   
-                <#if currentUrlInfo.isPermitted()>     
-
-                    <#if !currentScreenDef.hasRequiredParameters()>
-                        <#assign subMenuNum = subMenuNum + 1>
-                    </#if>                
-                </#if>
-            </#list>
-<#--${subMenuNum}-->
-    <#--${textLocation}-->
-<#--${sri.screenUrlInfo.toString()}----${currentScreenPath}-->
+    <#assign subMenuNum =ec.resource.expand(linkNode["@subMenuNum"], "0")>
     <#if sri.buildUrl(currentScreenPath).inCurrentScreenPath>
-        <#if subMenuNum gt 0>
+        <#if subMenuNum?eval gt 0>
                 <li class="active">
                   <a href="#">
 
@@ -189,7 +162,8 @@
         </li>
         </#if>
     <#else> 
-        <#if subMenuNum gt 0>
+        <#if subMenuNum?eval gt 0>
+
                 <li>
                   <a href="#">
                  <#if urlInstance.sui.menuImage?has_content>

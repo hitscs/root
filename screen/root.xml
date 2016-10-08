@@ -14,7 +14,7 @@
 	 </transition> -->
 	<subscreens default-item="AppList">
 		<!-- refer to the various app roots here -->
-	<!-- <subscreens-item name="cmsAdmin" location="component://cmsAdmin/screen/cmsAdmin.xml" menu-title="信息管理系统" menu-index="92" /> -->
+	 <subscreens-item name="cmsAdmin" location="component://cmsAdmin/screen/cmsAdmin.xml" menu-title="信息管理系统" menu-index="92" />
 		
 	</subscreens>
 	<pre-actions>

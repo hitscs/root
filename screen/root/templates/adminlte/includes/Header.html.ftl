@@ -62,10 +62,10 @@
     <script src="/root/templates/adminlte/plugins/jquery-validation-1.11.1/dist/jquery.validate.min.js" type="text/javascript"></script>
 
     <script src="/root/templates/adminlte/plugins/chosen/chosen.jquery.min.js" type="text/javascript"></script>  
-      
+    <!--  
     <script src="/root/js/ueditor/ueditor.config.js"></script>
     <script src="/root/js/ueditor/ueditor.all.min.js"></script>
-    <script src="/root/js/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <script src="/root/js/ueditor/lang/zh-cn/zh-cn.js"></script> -->
     <!-- SlimScroll -->
     <script src="/root/templates/adminlte/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>    
     <!-- FastClick -->
