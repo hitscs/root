@@ -23,9 +23,9 @@
 
 					<set field="subscreensItemUrlInfo" from="sri.buildUrl(currentScreenPath+'/'+subscreensItem.name)" />
 
-					<if condition="currentUrlInfo.isPermitted()">
+					<if condition="subscreensItemDef != null &amp;&amp; subscreensItemUrlInfo?.isPermitted() &amp;&amp; (showAll == 'true' || !subscreensItemDef?.hasRequiredParameters())">
 
-						<if condition="!currentScreenDef.hasRequiredParameters()">
+						<if condition="!subscreensItemDef?.hasRequiredParameters()">
 							<set field="subMenuNum" from="subMenuNum + 1" />
 						</if>
 					</if>
