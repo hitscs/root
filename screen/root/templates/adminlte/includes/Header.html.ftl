@@ -67,11 +67,11 @@
     <script src="/root/js/ueditor/ueditor.all.min.js"></script>
     <script src="/root/js/ueditor/lang/zh-cn/zh-cn.js"></script> -->
     <!-- SlimScroll -->
-    <script src="/root/templates/adminlte/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>    
+    <script src="/root/templates/adminlte/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>    
     <!-- FastClick -->
-    <script src="/root/templates/adminlte/plugins/fastclick/fastclick.js"></script>       
+    <script src="/root/templates/adminlte/plugins/fastclick/fastclick.js" type="text/javascript"></script>       
     <!-- AdminLTE App -->
-    <script src="/root/templates/adminlte/AdminLTE/dist/js/app.js"></script>   
+    <script src="/root/templates/adminlte/AdminLTE/dist/js/app.js" type="text/javascript"></script>   
     
     
         

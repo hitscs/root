@@ -43,7 +43,9 @@
                       <i class="glyphicon glyphicon-link" style="padding-right: 8px;"></i>
                  </#if>
                  <span>${ec.resource.expand(linkNode["@text"], "")}</span>
+                 <span class="pull-right-container">
                  <i class="fa fa-angle-left pull-right"></i> 
+                 </span>
               </a>
               <ul class="treeview-menu menu-open">
                 <#recurse>
@@ -85,7 +87,9 @@
                       <i class="glyphicon glyphicon-link" style="padding-right: 8px;"></i>
                  </#if>
                  <span>${ec.resource.expand(linkNode["@text"], "")}</span>
-                 <i class="fa fa-angle-left pull-right"></i>
+                 <span class="pull-right-container">
+                 <i class="fa fa-angle-left pull-right"></i> 
+                 </span>
               </a>
               <ul class="treeview-menu">       
                 <#recurse>
@@ -137,7 +141,9 @@
                       <i class="glyphicon glyphicon-link" style="padding-right: 8px;"></i>
                  </#if>
                    ${ec.resource.expand(linkNode["@text"], "")}
-                      <i class="fa fa-angle-left pull-right"></i>
+                 <span class="pull-right-container">
+                 <i class="fa fa-angle-left pull-right"></i> 
+                 </span>
                   </a>
                   <ul class="treeview-menu menu-open">
                     <#recurse>
@@ -178,7 +184,9 @@
                       <i class="glyphicon glyphicon-link" style="padding-right: 8px;"></i>
                  </#if>
                    ${ec.resource.expand(linkNode["@text"], "")}
-                      <i class="fa fa-angle-left pull-right"></i>
+                 <span class="pull-right-container">
+                 <i class="fa fa-angle-left pull-right"></i> 
+                 </span>
                   </a>
                   <ul class="treeview-menu"> 
                     <#recurse>
