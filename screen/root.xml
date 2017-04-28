@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-2.0.xsd"
+<screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-2.1.xsd"
 	require-authentication="false" standalone="true" default-menu-title="系统根目录">
 	<!-- NOTE: require-authentication=false is required to allow sub-screens to decide. -->
 	<macro-template type="html" location="component://root/screen/root/templates/adminlte/AdminLTEScreenMacros.html.ftl" />
